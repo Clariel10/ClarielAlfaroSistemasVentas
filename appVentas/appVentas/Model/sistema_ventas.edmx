@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="sistema_ventasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="roles_usuarios">
+          <Key>
+            <PropertyRef Name="Id_Rol_Usuario" />
+          </Key>
+          <Property Name="Id_Rol_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Usuario" Type="int" />
+          <Property Name="tipo_rol" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_roles_usuarios_tb_usuarios">
+          <End Role="tb_usuarios" Type="Self.tb_usuarios" Multiplicity="0..1" />
+          <End Role="roles_usuarios" Type="Self.roles_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="roles_usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sistema_ventasModelStoreContainer">
+          <EntitySet Name="roles_usuarios" EntityType="Self.roles_usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_usuarios" EntityType="Self.tb_usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_roles_usuarios_tb_usuarios" Association="Self.FK_roles_usuarios_tb_usuarios">
+            <End Role="tb_usuarios" EntitySet="tb_usuarios" />
+            <End Role="roles_usuarios" EntitySet="roles_usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sistema_ventasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="roles_usuarios" Relationship="sistema_ventasModel.FK_roles_usuarios_tb_usuarios" FromRole="tb_usuarios" ToRole="roles_usuarios" />
+        </EntityType>
+        <EntityContainer Name="sistema_ventasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_usuarios" EntityType="Self.tb_usuarios" />
+          <EntitySet Name="roles_usuarios" EntityType="sistema_ventasModel.roles_usuarios" />
+          <AssociationSet Name="FK_roles_usuarios_tb_usuarios" Association="sistema_ventasModel.FK_roles_usuarios_tb_usuarios">
+            <End Role="tb_usuarios" EntitySet="tb_usuarios" />
+            <End Role="roles_usuarios" EntitySet="roles_usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="roles_usuarios">
+          <Key>
+            <PropertyRef Name="Id_Rol_Usuario" />
+          </Key>
+          <Property Name="Id_Rol_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Usuario" Type="Int32" />
+          <Property Name="tipo_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_usuarios" Relationship="sistema_ventasModel.FK_roles_usuarios_tb_usuarios" FromRole="roles_usuarios" ToRole="tb_usuarios" />
+        </EntityType>
+        <Association Name="FK_roles_usuarios_tb_usuarios">
+          <End Type="sistema_ventasModel.tb_usuarios" Role="tb_usuarios" Multiplicity="0..1" />
+          <End Type="sistema_ventasModel.roles_usuarios" Role="roles_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="roles_usuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sistema_ventasModelStoreContainer" CdmEntityContainer="sistema_ventasEntities">
+          <EntitySetMapping Name="tb_usuarios">
+            <EntityTypeMapping TypeName="sistema_ventasModel.tb_usuarios">
+              <MappingFragment StoreEntitySet="tb_usuarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles_usuarios">
+            <EntityTypeMapping TypeName="sistema_ventasModel.roles_usuarios">
+              <MappingFragment StoreEntitySet="roles_usuarios">
+                <ScalarProperty Name="tipo_rol" ColumnName="tipo_rol" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_Rol_Usuario" ColumnName="Id_Rol_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

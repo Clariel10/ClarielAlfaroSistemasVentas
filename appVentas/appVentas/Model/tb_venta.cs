@@ -12,22 +12,27 @@ namespace appVentas.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_usuarios
+    public partial class tb_venta
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_usuarios()
+        public tb_venta()
         {
-            this.roles_usuarios = new HashSet<roles_usuarios>();
-            this.tb_venta = new HashSet<tb_venta>();
+            this.detalleVenta = new HashSet<detalleVenta>();
         }
     
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public string Contrasena { get; set; }
+        public int idVenta { get; set; }
+        public Nullable<int> idDocumento { get; set; }
+        public Nullable<int> iDCliente { get; set; }
+        public Nullable<int> iDUsuario { get; set; }
+        public Nullable<decimal> totalVenta { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<roles_usuarios> roles_usuarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_venta> tb_venta { get; set; }
+        public virtual ICollection<detalleVenta> detalleVenta { get; set; }
+        public virtual tb_cliente tb_cliente { get; set; }
+        public virtual tb_cliente tb_cliente1 { get; set; }
+        public virtual tb_documento tb_documento { get; set; }
+        public virtual tb_documento tb_documento1 { get; set; }
+        public virtual tb_usuarios tb_usuarios { get; set; }
     }
 }

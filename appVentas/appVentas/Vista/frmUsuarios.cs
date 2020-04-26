@@ -156,5 +156,10 @@ namespace appVentas.Vista
            
 
         }
+
+        private void dtvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

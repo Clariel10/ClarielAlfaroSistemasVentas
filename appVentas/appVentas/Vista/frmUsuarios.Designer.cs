@@ -45,45 +45,46 @@
             // 
             this.dtvUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtvUsuario.Location = new System.Drawing.Point(55, 229);
+            this.dtvUsuario.Location = new System.Drawing.Point(128, 360);
             this.dtvUsuario.Name = "dtvUsuario";
-            this.dtvUsuario.Size = new System.Drawing.Size(742, 268);
+            this.dtvUsuario.Size = new System.Drawing.Size(959, 330);
             this.dtvUsuario.TabIndex = 0;
             this.dtvUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvUsuario_CellClick);
+            this.dtvUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvUsuario_CellContentClick);
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(153, 100);
+            this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(369, 145);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(184, 24);
+            this.txtUsuario.Size = new System.Drawing.Size(184, 27);
             this.txtUsuario.TabIndex = 2;
             // 
             // txtContra
             // 
-            this.txtContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContra.Location = new System.Drawing.Point(442, 100);
+            this.txtContra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContra.Location = new System.Drawing.Point(658, 145);
             this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(182, 24);
+            this.txtContra.Size = new System.Drawing.Size(182, 27);
             this.txtContra.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(150, 71);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(366, 116);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 18);
+            this.label1.Size = new System.Drawing.Size(70, 21);
             this.label1.TabIndex = 5;
             this.label1.Text = "Usuario:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(439, 71);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(655, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 18);
+            this.label2.Size = new System.Drawing.Size(107, 21);
             this.label2.TabIndex = 6;
             this.label2.Text = "Contraseña:";
             // 
@@ -91,7 +92,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(110, 18);
+            this.label3.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label3.Location = new System.Drawing.Point(328, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(621, 29);
             this.label3.TabIndex = 9;
@@ -99,11 +101,12 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = global::appVentas.Properties.Resources.editar;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(638, 162);
+            this.btnEditar.Location = new System.Drawing.Point(811, 241);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(159, 53);
             this.btnEditar.TabIndex = 8;
@@ -113,11 +116,12 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = global::appVentas.Properties.Resources.Eliminar;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(442, 162);
+            this.btnEliminar.Location = new System.Drawing.Point(615, 241);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(159, 53);
             this.btnEliminar.TabIndex = 7;
@@ -127,11 +131,12 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = global::appVentas.Properties.Resources.guardar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(250, 162);
+            this.btnGuardar.Location = new System.Drawing.Point(423, 241);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(159, 53);
             this.btnGuardar.TabIndex = 4;
@@ -141,11 +146,12 @@
             // 
             // btnCargar
             // 
+            this.btnCargar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargar.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnCargar.ForeColor = System.Drawing.Color.White;
             this.btnCargar.Image = global::appVentas.Properties.Resources.agregar;
             this.btnCargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCargar.Location = new System.Drawing.Point(55, 162);
+            this.btnCargar.Location = new System.Drawing.Point(228, 241);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(159, 53);
             this.btnCargar.TabIndex = 1;
@@ -157,8 +163,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(844, 530);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1258, 752);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnEliminar);

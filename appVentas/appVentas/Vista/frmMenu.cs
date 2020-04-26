@@ -12,6 +12,8 @@ namespace appVentas.Vista
 {
     public partial class frmMenu : Form
     {
+
+       
         public frmMenu()
         {
             InitializeComponent();
@@ -37,6 +39,18 @@ namespace appVentas.Vista
         private void frmMenu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        public static frmVentas ventas = new frmVentas();
+        private void realizarVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ventas.MdiParent = this;
+            ventas.Dock = DockStyle.Fill;
+            ventas.Show();
         }
     }
 }

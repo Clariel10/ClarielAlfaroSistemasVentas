@@ -12,22 +12,23 @@ namespace appVentas.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_usuarios
+    public partial class tb_cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_usuarios()
+        public tb_cliente()
         {
-            this.roles_usuarios = new HashSet<roles_usuarios>();
             this.tb_venta = new HashSet<tb_venta>();
+            this.tb_venta1 = new HashSet<tb_venta>();
         }
     
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public string Contrasena { get; set; }
+        public int iDCliente { get; set; }
+        public string nombreCliente { get; set; }
+        public string direccionCliente { get; set; }
+        public string duiCliente { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<roles_usuarios> roles_usuarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_venta> tb_venta { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_venta> tb_venta1 { get; set; }
     }
 }

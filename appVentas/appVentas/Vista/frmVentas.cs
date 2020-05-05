@@ -24,7 +24,7 @@ namespace appVentas.Vista
                         
         }
 
-
+        
 
         void RetornarId()
         {
@@ -34,7 +34,10 @@ namespace appVentas.Vista
 
                 foreach (var iteracion in lista)
                 {
-                    lblNumVenta.Text = iteracion.idVenta.ToString();
+                    string id = iteracion.idVenta.ToString();
+                    int idConvertido = Convert.ToInt32(id);
+                    int suma = idConvertido + 1;
+                    lblNumVenta.Text = suma.ToString();
                 }
             }
         }
@@ -184,8 +187,58 @@ namespace appVentas.Vista
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            foreach (DataRow row in dgvVentas.Rows)
+            using (sistema_ventasEntities bd = new sistema_ventasEntities())
             {
+                try
+                {
+                    tb_venta tbV = new tb_venta();
+                    tbV.idDocumento = Convert.ToInt32(cmbDocumento.SelectedValue);
+                    tbV.iDCliente = Convert.ToInt32(cmbClientes.SelectedValue);
+                    tbV.iDUsuario = 1;
+                    tbV.totalVenta = Convert.ToDecimal(lblTotal.Text);
+                    tbV.fecha = Convert.ToDateTime(dtpFecha.Text);
+                    bd.tb_venta.Add(tbV);
+                    bd.SaveChanges();
+
+                    detalleVenta dete = new detalleVenta();
+
+
+                    for (int i = 0; i < dgvVentas.RowCount; i++)
+                    {
+                        string idProducto = dgvVentas.Rows[i].Cells[0].Value.ToString();
+                        int idConvertido = Convert.ToInt32(idProducto);
+
+                        string Cantidad = dgvVentas.Rows[i].Cells[3].Value.ToString();
+                        int CantidadConvertido = Convert.ToInt32(Cantidad);
+
+                        string Precio = dgvVentas.Rows[i].Cells[2].Value.ToString();
+                        decimal PrecioConvertido = Convert.ToDecimal(Precio);
+
+                        string Total = dgvVentas.Rows[i].Cells[4].Value.ToString();
+                        decimal TotalConvertido = Convert.ToDecimal(Total);
+
+
+                        dete.idVenta = Convert.ToInt32(lblNumVenta.Text);
+                        dete.idProducto = idConvertido;
+                        dete.cantidad = CantidadConvertido;
+                        dete.precio = PrecioConvertido;
+                        dete.total = TotalConvertido;
+                        bd.detalleVenta.Add(dete);
+                        bd.SaveChanges();
+                    }
+
+                    limpiar();
+                    dgvVentas.Rows.Clear();
+                    RetornarId();
+                    cargarClientes();
+                    cargarDocumentos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se han definido algunos valores");
+                }
+                            
+               
 
             }
         }

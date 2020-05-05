@@ -62,6 +62,7 @@
             this.lblSubtotal = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblNumVenta = new System.Windows.Forms.Label();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -277,7 +278,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(732, 24);
+            this.label9.Location = new System.Drawing.Point(695, 24);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(140, 21);
             this.label9.TabIndex = 18;
@@ -287,7 +288,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(407, 24);
+            this.label10.Location = new System.Drawing.Point(377, 24);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 21);
             this.label10.TabIndex = 17;
@@ -298,7 +299,7 @@
             this.cmbClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(398, 57);
+            this.cmbClientes.Location = new System.Drawing.Point(355, 58);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(211, 27);
             this.cmbClientes.TabIndex = 19;
@@ -308,7 +309,7 @@
             this.cmbDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDocumento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDocumento.FormattingEnabled = true;
-            this.cmbDocumento.Location = new System.Drawing.Point(721, 57);
+            this.cmbDocumento.Location = new System.Drawing.Point(699, 58);
             this.cmbDocumento.Name = "cmbDocumento";
             this.cmbDocumento.Size = new System.Drawing.Size(211, 27);
             this.cmbDocumento.TabIndex = 20;
@@ -379,12 +380,22 @@
             this.lblNumVenta.TabIndex = 28;
             this.lblNumVenta.Text = "0";
             // 
+            // dtpFecha
+            // 
+            this.dtpFecha.CalendarFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.CustomFormat = "yyyy-MM-dd";
+            this.dtpFecha.Location = new System.Drawing.Point(949, 60);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpFecha.TabIndex = 29;
+            // 
             // frmVentas
             // 
             this.AcceptButton = this.btnAgregar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 752);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.lblNumVenta);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblSubtotal);
@@ -454,5 +465,6 @@
         private System.Windows.Forms.Label lblSubtotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblNumVenta;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }

@@ -129,6 +129,12 @@
     <Compile Include="Vista\frmVentas.Designer.cs">
       <DependentUpon>frmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Logueo.resx">
       <DependentUpon>Logueo.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\frmVentas.resx">
       <DependentUpon>frmVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model\sistema_ventas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -189,6 +198,7 @@
       <DependentUpon>sistema_ventas.edmx</DependentUpon>
       <LastGenOutput>sistema_ventas.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\inicio2.png" />
     <None Include="Resources\editar.png" />
     <None Include="Resources\Eliminar.png" />
     <None Include="Resources\guardar.png" />

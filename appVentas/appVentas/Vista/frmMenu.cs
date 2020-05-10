@@ -38,7 +38,10 @@ namespace appVentas.Vista
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-
+            Inicio ini = new Inicio();
+            ini.MdiParent = this;
+            ini.Dock = DockStyle.Fill;
+            ini.Show();
         }
 
         private void ventasToolStripMenuItem_Click(object sender, EventArgs e)

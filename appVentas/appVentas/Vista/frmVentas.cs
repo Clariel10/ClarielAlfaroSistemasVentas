@@ -19,7 +19,7 @@ namespace appVentas.Vista
         public frmVentas()
         {
             InitializeComponent();
-            lblSubtotal.Text = "0.00";
+           
             lblTotal.Text = "0.00";
                         
         }
@@ -44,7 +44,7 @@ namespace appVentas.Vista
 
         void calculo()
         {
-            decimal contador = 0;
+            
             try
             {
                 int cantidad = int.Parse(txtCantidad.Text);
@@ -57,7 +57,7 @@ namespace appVentas.Vista
 
                 SubTotal = SubTotal + (decimal.Parse(txtTotal.Text));
                 Total = SubTotal;
-                lblSubtotal.Text = SubTotal.ToString();
+                
                 lblTotal.Text = Total.ToString();
 
 
@@ -126,6 +126,8 @@ namespace appVentas.Vista
             RetornarId();
             cargarClientes();
             cargarDocumentos();
+           
+
         }
 
         private void dgvVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -161,27 +163,37 @@ namespace appVentas.Vista
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try {
-                calculo();
+
+                if (txtCantidad.Text != "" && txtCodProducto.Text != "" && txtNombreProd.Text != "" && txtPrecio.Text != "") 
+                {
+                    calculo();
+                    dgvVentas.Rows.Add(txtCodProducto.Text, txtNombreProd.Text, txtPrecio.Text,
+                txtCantidad.Text, txtTotal.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Datos vacios");
+                }
                 
+
             }
             catch (Exception ex)
             {
-
+                
             }
-            dgvVentas.Rows.Add(txtCodProducto.Text, txtNombreProd.Text, txtPrecio.Text, txtCantidad.Text, txtTotal.Text);
             
 
 
 
+
             limpiar();
-            btnBuscar.Focus();
+           
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
                        
-                //calculo();
-                       
+                                      
             
         }
 
@@ -240,6 +252,57 @@ namespace appVentas.Vista
                             
                
 
+            }
+        }
+
+        private void txtBuscarProducto_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtBuscarProducto.Text == "")
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnBuscar.PerformClick();
+                }
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                using (sistema_ventasEntities bd = new sistema_ventasEntities())
+                {
+
+                    producto pr = new producto();
+                    int buscar = int.Parse(txtBuscarProducto.Text);
+                    pr = bd.producto.Where(idBuscar => idBuscar.idProducto == buscar).First();
+                    txtCodProducto.Text = Convert.ToString(pr.idProducto);
+                    txtNombreProd.Text = pr.nombreProducto;
+                    txtPrecio.Text = Convert.ToString(pr.precioProducto);
+                    txtCantidad.Focus();
+                    txtBuscarProducto.Text = "";
+
+                }
+
+
+            }
+        }
+
+        int intentos = 1;
+
+        private void txtCantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (intentos == 2)
+                {
+                    btnAgregar.PerformClick();
+                    txtBuscarProducto.Focus();
+                    txtCodProducto.Text = "";
+                    txtNombreProd.Text = "";
+                    txtPrecio.Text = "";
+                    txtTotal.Text = "";
+                    intentos = 0;
+                    txtCantidad.Text = "1";
+                    txtBuscarProducto.Focus();
+                }
+                intentos += 1;
             }
         }
     }

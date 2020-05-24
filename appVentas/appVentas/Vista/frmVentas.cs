@@ -244,6 +244,7 @@ namespace appVentas.Vista
                     RetornarId();
                     cargarClientes();
                     cargarDocumentos();
+                    lblTotal.Text = "";
                 }
                 catch (Exception ex)
                 {
@@ -277,7 +278,7 @@ namespace appVentas.Vista
                     txtPrecio.Text = Convert.ToString(pr.precioProducto);
                     txtCantidad.Focus();
                     txtBuscarProducto.Text = "";
-
+                    intentos = 2;
                 }
 
 

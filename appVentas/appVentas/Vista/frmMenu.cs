@@ -21,6 +21,7 @@ namespace appVentas.Vista
 
         private void rOLESToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ventas.Hide();
             frmROLES roles = new frmROLES();
             roles.MdiParent = this;
             roles.Dock = DockStyle.Fill;
@@ -29,6 +30,7 @@ namespace appVentas.Vista
 
         private void uSUARIOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ventas.Hide();
             frmUsuarios usuarios = new frmUsuarios();
             usuarios.MdiParent = this;
             usuarios.Dock = DockStyle.Fill;
@@ -51,6 +53,7 @@ namespace appVentas.Vista
         public static frmVentas ventas = new frmVentas();
         private void realizarVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             ventas.MdiParent = this;
             ventas.Dock = DockStyle.Fill;
             ventas.Show();

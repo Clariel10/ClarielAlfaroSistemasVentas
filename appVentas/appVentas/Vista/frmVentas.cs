@@ -121,6 +121,21 @@ namespace appVentas.Vista
             
         }
 
+        void calculartotalfinal()
+        {
+            double suma = 0;
+            for(int i = 0; i < dgvVentas.RowCount; i++)
+            {
+                string datosAOperar = dgvVentas.Rows[i].Cells[4].Value.ToString();
+                double datosConvertidos = Convert.ToDouble(datosAOperar);
+
+                suma += datosConvertidos;
+
+                lblTotal.Text = suma.ToString();
+
+            }
+        }
+
         private void frmVentas_Load(object sender, EventArgs e)
         {
             RetornarId();
@@ -181,13 +196,16 @@ namespace appVentas.Vista
             {
                 
             }
-            
-
-
-
 
             limpiar();
-           
+
+            dgvVentas.Refresh();
+            dgvVentas.ClearSelection();
+            int ultimafila = dgvVentas.Rows.Count - 1;
+            dgvVentas.FirstDisplayedScrollingRowIndex = ultimafila;
+            dgvVentas.Rows[ultimafila].Selected = true;
+
+
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
@@ -305,6 +323,16 @@ namespace appVentas.Vista
                 }
                 intentos += 1;
             }
+        }
+
+        private void lblNumVenta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvVentas_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            calculartotalfinal();
         }
     }
 }
